@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Applications | PlacementHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🎓 PlacementHub
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/companies">Companies</a>
+        <a href="/jobs/1">Jobs</a>
+    </nav>
+
+</header>
+
+
+<main class="applications-page">
+
+    <div class="applications-container">
+
+        <div class="dashboard-heading">
+
+            <p class="welcome">
+                PLACEMENT TRACKER
+            </p>
+
+            <h1>My Applications 📋</h1>
+
+            <p>
+                Track the status of your placement applications.
+            </p>
+
+        </div>
+
+
+        {% if applications %}
+
+        <div class="application-list">
+
+            {% for application in applications %}
+
+            <div class="application-card">
+
+                <div class="application-info">
+
+                    <h2>
+                        {{ application[1] }}
+                    </h2>
+
+                    <p class="job-role">
+                        💼 {{ application[2] }}
+                    </p>
+
+                    <p class="application-id">
+                        Application ID: #{{ application[0] }}
+                    </p>
+
+                </div>
+
+
+                <div class="application-status">
+
+                    {% if application[3] == "Selected" %}
+
+                        <span class="status-badge selected">
+                            ✅ Selected
+                        </span>
+
+                    {% elif application[3] == "Rejected" %}
+
+                        <span class="status-badge rejected">
+                            ❌ Rejected
+                        </span>
+
+                    {% else %}
+
+                        <span class="status-badge applied">
+                            🟡 Applied
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                📭
+            </div>
+
+            <h2>No Applications Yet</h2>
+
+            <p>
+                You haven't applied for any placement opportunity yet.
+            </p>
+
+            <a href="/jobs/1" class="dashboard-btn">
+                Explore Jobs →
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 PlacementHub | College Placement Management System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

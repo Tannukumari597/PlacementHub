@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | PlacementHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🎓 PlacementHub
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/companies">Companies</a>
+        <a href="/admin-logout" class="logout-link">
+            Logout
+        </a>
+    </nav>
+
+</header>
+
+
+<main class="admin-page">
+
+    <div class="admin-container">
+
+        <div class="dashboard-heading">
+
+            <p class="welcome">
+                ADMIN PORTAL
+            </p>
+
+            <h1>Placement Management</h1>
+
+            <p>
+                Manage students and track placement applications.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <section class="admin-stats">
+
+            <div class="stat-card">
+                <div class="dashboard-icon">👨‍🎓</div>
+                <h2>{{ students|length }}</h2>
+                <p>Registered Students</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="dashboard-icon">📋</div>
+                <h2>{{ applications|length }}</h2>
+                <p>Total Applications</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="dashboard-icon">✅</div>
+                <h2>
+                    {{ applications | selectattr("4", "equalto", "Selected") | list | length }}
+                </h2>
+                <p>Selected</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="dashboard-icon">❌</div>
+                <h2>
+                    {{ applications | selectattr("4", "equalto", "Rejected") | list | length }}
+                </h2>
+                <p>Rejected</p>
+            </div>
+
+        </section>
+
+
+        <!-- STUDENTS -->
+
+        <section class="admin-section">
+
+            <h2>Registered Students</h2>
+
+            {% if students %}
+
+            <div class="admin-table">
+
+                <div class="table-header">
+                    <span>Name</span>
+                    <span>Email</span>
+                    <span>Course</span>
+                    <span>Passing Year</span>
+                </div>
+
+
+                {% for student in students %}
+
+                <div class="table-row">
+
+                    <span>{{ student[1] }}</span>
+                    <span>{{ student[2] }}</span>
+                    <span>{{ student[4] }}</span>
+                    <span>{{ student[6] }}</span>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <p>No students registered yet.</p>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- APPLICATIONS -->
+
+        <section class="admin-section">
+
+            <h2>Placement Applications</h2>
+
+            {% if applications %}
+
+            <div class="admin-table">
+
+                <div class="table-header">
+                    <span>Student</span>
+                    <span>Company</span>
+                    <span>Job Role</span>
+                    <span>Status</span>
+                </div>
+
+
+                {% for application in applications %}
+
+                <div class="table-row">
+
+                    <span>{{ application[1] }}</span>
+
+                    <span>{{ application[2] }}</span>
+
+                    <span>{{ application[3] }}</span>
+
+                    <span>
+
+                        <form
+                            action="/update_status/{{ application[0] }}"
+                            method="POST"
+                            class="status-form">
+
+                            <button
+                                type="submit"
+                                name="status"
+                                value="Applied"
+                                class="status-btn applied-btn">
+                                Applied
+                            </button>
+
+                            <button
+                                type="submit"
+                                name="status"
+                                value="Selected"
+                                class="status-btn selected-btn">
+                                Selected
+                            </button>
+
+                            <button
+                                type="submit"
+                                name="status"
+                                value="Rejected"
+                                class="status-btn rejected-btn">
+                                Rejected
+                            </button>
+
+                        </form>
+
+                    </span>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <p>No applications submitted yet.</p>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 PlacementHub | College Placement Management System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

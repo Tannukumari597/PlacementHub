@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Opportunities | PlacementHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🎓 PlacementHub
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/companies">Companies</a>
+        <a href="/jobs/{{ student_id }}">Jobs</a>
+        <a href="/applications/{{ student_id }}">
+            My Applications
+        </a>
+    </nav>
+
+</header>
+
+
+<main class="jobs-page">
+
+    <div class="jobs-container">
+
+        <div class="jobs-heading">
+
+            <p class="welcome">
+                CAREER OPPORTUNITIES
+            </p>
+
+            <h1>
+                Available Jobs 💼
+            </h1>
+
+            <p>
+                Explore opportunities and apply for the job that matches
+                your skills and qualifications.
+            </p>
+
+        </div>
+
+
+        <section class="job-grid">
+
+
+            <!-- TCS -->
+
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div class="job-logo">
+                        TCS
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+                <h2>
+                    Software Developer
+                </h2>
+
+                <p class="company-name">
+                    Tata Consultancy Services
+                </p>
+
+                <div class="job-details">
+
+                    <p>📍 Noida</p>
+
+                    <p>💰 Competitive Package</p>
+
+                    <p>🎓 BCA / B.Tech</p>
+
+                    <p>🛠️ Programming & Software Development</p>
+
+                </div>
+
+                <form action="/apply" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="student_id"
+                        value="{{ student_id }}">
+
+                    <input
+                        type="hidden"
+                        name="company"
+                        value="Tata Consultancy Services">
+
+                    <input
+                        type="hidden"
+                        name="job_role"
+                        value="Software Developer">
+
+                    <button type="submit" class="apply-btn">
+                        Apply Now →
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- INFOSYS -->
+
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div class="job-logo">
+                        INF
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+                <h2>
+                    System Engineer
+                </h2>
+
+                <p class="company-name">
+                    Infosys
+                </p>
+
+                <div class="job-details">
+
+                    <p>📍 Bengaluru</p>
+
+                    <p>💰 Competitive Package</p>
+
+                    <p>🎓 BCA / B.Tech</p>
+
+                    <p>🛠️ System & Software Engineering</p>
+
+                </div>
+
+                <form action="/apply" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="student_id"
+                        value="{{ student_id }}">
+
+                    <input
+                        type="hidden"
+                        name="company"
+                        value="Infosys">
+
+                    <input
+                        type="hidden"
+                        name="job_role"
+                        value="System Engineer">
+
+                    <button type="submit" class="apply-btn">
+                        Apply Now →
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- ACCENTURE -->
+
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div class="job-logo">
+                        ACC
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+                <h2>
+                    Associate Software Engineer
+                </h2>
+
+                <p class="company-name">
+                    Accenture
+                </p>
+
+                <div class="job-details">
+
+                    <p>📍 Gurugram</p>
+
+                    <p>💰 Competitive Package</p>
+
+                    <p>🎓 BCA / B.Tech</p>
+
+                    <p>🛠️ Software Development & Technology</p>
+
+                </div>
+
+                <form action="/apply" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="student_id"
+                        value="{{ student_id }}">
+
+                    <input
+                        type="hidden"
+                        name="company"
+                        value="Accenture">
+
+                    <input
+                        type="hidden"
+                        name="job_role"
+                        value="Associate Software Engineer">
+
+                    <button type="submit" class="apply-btn">
+                        Apply Now →
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- WIPRO -->
+
+            <div class="job-card">
+
+                <div class="job-top">
+
+                    <div class="job-logo">
+                        WIP
+                    </div>
+
+                    <span class="job-type">
+                        Full Time
+                    </span>
+
+                </div>
+
+                <h2>
+                    Junior Developer
+                </h2>
+
+                <p class="company-name">
+                    Wipro
+                </p>
+
+                <div class="job-details">
+
+                    <p>📍 Hyderabad</p>
+
+                    <p>💰 Competitive Package</p>
+
+                    <p>🎓 BCA / B.Tech</p>
+
+                    <p>🛠️ Web & Software Development</p>
+
+                </div>
+
+                <form action="/apply" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="student_id"
+                        value="{{ student_id }}">
+
+                    <input
+                        type="hidden"
+                        name="company"
+                        value="Wipro">
+
+                    <input
+                        type="hidden"
+                        name="job_role"
+                        value="Junior Developer">
+
+                    <button type="submit" class="apply-btn">
+                        Apply Now →
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 PlacementHub | College Placement Management System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

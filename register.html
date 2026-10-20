@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">🎓 PlacementHub</div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/companies">Companies</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+
+
+    <main class="form-page">
+
+        <div class="form-container">
+
+            <div class="form-heading">
+                <p class="welcome">STUDENT PORTAL</p>
+
+                <h1>Create Your Profile</h1>
+
+                <p>
+                    Register yourself to explore placement opportunities
+                    and apply for jobs.
+                </p>
+            </div>
+
+
+            <form action="/register" method="POST">
+
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your full name"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Enter your phone number"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Course</label>
+                    <input
+                        type="text"
+                        name="course"
+                        placeholder="Example: BCA"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Skills</label>
+                    <input
+                        type="text"
+                        name="skills"
+                        placeholder="Example: Python, Java, HTML, SQL">
+                </div>
+
+
+                <div class="input-group">
+                    <label>Passing Year</label>
+                    <input
+                        type="number"
+                        name="passing_year"
+                        placeholder="Example: 2027"
+                        min="2020"
+                        max="2100"
+                        required>
+                </div>
+
+
+                <button type="submit" class="form-btn">
+                    Create Profile →
+                </button>
+
+            </form>
+
+
+            <p class="login-link">
+                Already registered?
+                <a href="/login">Login here</a>
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 PlacementHub | College Placement Management System</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | PlacementHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🎓 PlacementHub
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/companies">Companies</a>
+        <a href="/jobs/{{ student[0] }}">Jobs</a>
+        <a href="/applications/{{ student[0] }}">
+            My Applications
+        </a>
+    </nav>
+
+</header>
+
+
+<main class="dashboard-page">
+
+    <div class="dashboard-container">
+
+        <!-- Welcome -->
+
+        <section class="dashboard-heading">
+
+            <p class="welcome">
+                STUDENT DASHBOARD
+            </p>
+
+            <h1>
+                Welcome, {{ student[1] }} 👋
+            </h1>
+
+            <p>
+                Your personalized placement dashboard
+            </p>
+
+        </section>
+
+
+        <!-- Profile -->
+
+        <section class="profile-card">
+
+            <div class="profile-icon">
+                👨‍🎓
+            </div>
+
+            <div class="profile-info">
+
+                <h2>
+                    {{ student[1] }}
+                </h2>
+
+                <p>
+                    📧 {{ student[2] }}
+                </p>
+
+                <p>
+                    📱 {{ student[3] }}
+                </p>
+
+                <p>
+                    🎓 {{ student[4] }}
+                </p>
+
+                <p>
+                    📅 Passing Year: {{ student[6] }}
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Cards -->
+
+        <section class="dashboard-cards">
+
+
+            <a href="/companies"
+               class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Explore Companies
+                </h3>
+
+                <p>
+                    Discover companies offering placement opportunities.
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <a href="/jobs/{{ student[0] }}"
+               class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Available Jobs
+                </h3>
+
+                <p>
+                    Find suitable jobs and apply according to your skills.
+                </p>
+
+                <span>
+                    View Jobs →
+                </span>
+
+            </a>
+
+
+            <a href="/applications/{{ student[0] }}"
+               class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📋
+                </div>
+
+                <h3>
+                    My Applications
+                </h3>
+
+                <p>
+                    Track your submitted applications and their status.
+                </p>
+
+                <span>
+                    Track Applications →
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- Skills -->
+
+        <section class="skills-card">
+
+            <div>
+
+                <h2>
+                    💡 My Skills
+                </h2>
+
+                <p>
+                    {{ student[5] if student[5] else "No skills added yet." }}
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Career Tip -->
+
+        <section class="career-tip">
+
+            <h2>
+                🚀 Career Tip
+            </h2>
+
+            <p>
+                Keep your skills updated and regularly check new placement
+                opportunities to improve your chances of getting selected.
+            </p>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 PlacementHub | College Placement Management System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

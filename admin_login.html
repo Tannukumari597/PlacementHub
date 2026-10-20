@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | PlacementHub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            🎓 PlacementHub
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/login">Student Login</a>
+        </nav>
+
+    </header>
+
+
+    <main class="form-page">
+
+        <div class="form-container">
+
+            <div class="form-heading">
+
+                <p class="welcome">
+                    ADMIN PORTAL
+                </p>
+
+                <h1>Admin Login</h1>
+
+                <p>
+                    Login to manage students and placement applications.
+                </p>
+
+            </div>
+
+
+            <form action="/admin-login" method="POST">
+
+                <div class="input-group">
+
+                    <label>Admin Username</label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter admin username"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter admin password"
+                        required>
+
+                </div>
+
+
+                <button type="submit" class="form-btn">
+                    Login to Admin Panel →
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 PlacementHub | College Placement Management System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
